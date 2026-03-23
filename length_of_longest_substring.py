@@ -44,4 +44,26 @@ class Solution:
 
         return max_len
 
-        
+class Solution2:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        max_len = 0
+        start = 0
+        end = 0
+
+        while start < len(s):
+            map = dict()
+            map[s[start]] = start
+            end = start + 1
+            while end < len(s) and s[end] not in map:
+                map[s[end]] = end
+                end = end + 1
+            if(end - start > max_len):
+                max_len = end - start
+            if (end < len(s) and s[end] in map):
+                start = map[s[end]] + 1
+            else:
+                start = start + 1
+
+        return max_len
+
+                
