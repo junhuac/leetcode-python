@@ -71,6 +71,9 @@ class Solution2:
 
 class Solution3:
     def longestPalindrome(self, s: str) -> str:
+        if s == s[ : : -1]:
+            return s
+
         hashmap = dict()
         max_length = 0
         result = ""
